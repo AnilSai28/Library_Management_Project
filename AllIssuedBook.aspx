@@ -22,9 +22,9 @@
                         </ItemTemplate>
                     </asp:TemplateField>
 
-                      <asp:TemplateField HeaderText="Student Email ID" >
+                      <asp:TemplateField HeaderText="Student ID" >
                         <ItemTemplate>
-                            <asp:Label ID="lbl_StudentEmailID" runat="server" Text='<% # Eval("StudentEmailID") %>' />
+                            <asp:Label ID="lbl_StudentID" runat="server" Text='<% # Eval("StudentID") %>' />
                         </ItemTemplate>
                     </asp:TemplateField>
 
@@ -57,9 +57,7 @@
                         </ItemTemplate>
                     </asp:TemplateField>
 
-                    <asp:CommandField ShowSelectButton="true" SelectText="Details" />
-
-
+                    
                 </Columns>
             </asp:GridView>
             </div>

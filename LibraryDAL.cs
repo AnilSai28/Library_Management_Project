@@ -88,7 +88,7 @@ public class LibraryDAL
         com_addAdmin.Parameters.AddWithValue("@author", model.BookAuthor);
         com_addAdmin.Parameters.AddWithValue("@title", model.BookTitle);
         com_addAdmin.Parameters.AddWithValue("@price", model.BookPrice);
-        com_addAdmin.Parameters.AddWithValue("@date", model.BookAddDate);
+        
         com_addAdmin.Parameters.AddWithValue("@pages", model.NoOfPages);
         com_addAdmin.Parameters.AddWithValue("@image", model.BookImage);
         com_addAdmin.CommandType = CommandType.StoredProcedure;
@@ -154,15 +154,15 @@ public class LibraryDAL
 
 
     }
-    public bool Update(int id, string name, string author,string title,int price,DateTime adddate, int pages, string address)
+    public bool Update(int id, string name, string author,string title,int price, int pages, string address)
     {
         SqlCommand com_update = new SqlCommand("proc_update", con);
         com_update.Parameters.AddWithValue("@id", id);
         com_update.Parameters.AddWithValue("@name", name);
-        com_update.Parameters.AddWithValue("@authorname", author);
+        com_update.Parameters.AddWithValue("@author", author);
         com_update.Parameters.AddWithValue("@title", title);
         com_update.Parameters.AddWithValue("@price", price);
-        com_update.Parameters.AddWithValue("@adddate", adddate);
+       
         com_update.Parameters.AddWithValue("@pages", pages);
         com_update.Parameters.AddWithValue("@image", address);
         com_update.CommandType = CommandType.StoredProcedure;
@@ -211,7 +211,7 @@ public class LibraryDAL
         {
             IssueBookModel model = new IssueBookModel();
             model.IssueID = dr.GetInt32(0);
-            model.StudentID = dr.GetString(1);
+            model.StudentID = dr.GetInt32(1);
             model.IssueDate = dr.GetDateTime(2);
             model.IssueStatus = dr.GetString(3);
             model.BookID = dr.GetInt32(4);
@@ -223,7 +223,7 @@ public class LibraryDAL
         return list;
 
     }
-    public List<IssueBookModel> ShowAllIssuedBook(int Key)
+    public List<IssueBookModel> ShowAllIssuedBook(string Key)
     {
         SqlCommand com_Show = new SqlCommand("proc_ShowAllIssuedBook", con);
         com_Show.Parameters.AddWithValue("@key", Key);
@@ -236,7 +236,7 @@ public class LibraryDAL
         {
             IssueBookModel model = new IssueBookModel();
             model.IssueID = dr.GetInt32(0);
-            model.StudentID = dr.GetString(1);
+            model.StudentID = dr.GetInt32(1);
             model.IssueDate = dr.GetDateTime(2);
             model.IssueStatus = dr.GetString(3);
             model.BookID = dr.GetInt32(4);
@@ -248,6 +248,69 @@ public class LibraryDAL
         return list;
 
     }
+    public int AddCart(int bid,int sid)
+    {
+        SqlCommand com_addCart = new SqlCommand("proc_addcart", con);
+        com_addCart.Parameters.AddWithValue("@bid", bid);
+        com_addCart.Parameters.AddWithValue("@sid", sid);
+        com_addCart.CommandType = CommandType.StoredProcedure;
+        SqlParameter para_ret = new SqlParameter();
+        para_ret.Direction = ParameterDirection.ReturnValue;
+        com_addCart.Parameters.Add(para_ret);
+        con.Open();
+        com_addCart.ExecuteNonQuery();
+        con.Close();
+        int id = Convert.ToInt32(para_ret.Value);
+        return id;
+    }
 
+    public List<BookModel> MyBookCart(int sid)
+    {
+        SqlCommand com_BookCart = new SqlCommand("proc_myBookCart", con);
+        com_BookCart.Parameters.AddWithValue("@sid", sid);
+        com_BookCart.CommandType = CommandType.StoredProcedure;
+        con.Open();
+        SqlDataReader dr = com_BookCart.ExecuteReader();
+
+        List<BookModel> list = new List<BookModel>();
+        while (dr.Read())
+        {
+            BookModel model = new BookModel();
+            model.BookID = dr.GetInt32(0);
+            model.BookName = dr.GetString(1);
+            model.BookAuthor = dr.GetString(2);
+            model.BookTitle = dr.GetString(3);
+            model.BookPrice = dr.GetInt32(4);
+            model.BookAddDate = dr.GetDateTime(5);
+            model.NoOfPages = dr.GetInt32(6);
+            model.BookImage = dr.GetString(7);
+            list.Add(model);
+        }
+        con.Close();
+        return list;
+    }
+    public bool RemoveFromCart(int bid,int sid)
+    {
+        SqlCommand com_delete = new SqlCommand("proc_removefromcart", con);
+        com_delete.Parameters.AddWithValue("@bid", bid);
+        com_delete.Parameters.AddWithValue("@sid", sid);
+        com_delete.CommandType = CommandType.StoredProcedure;
+        SqlParameter para_return = new SqlParameter();
+        para_return.Direction = ParameterDirection.ReturnValue;
+        com_delete.Parameters.Add(para_return);
+        con.Open();
+        com_delete.ExecuteNonQuery();
+        con.Close();
+        int count = Convert.ToInt32(para_return.Value);
+        if (count > 0)
+        {
+            return true;
+
+        }
+        else
+        {
+            return false;
+        }
+    }
 
 }

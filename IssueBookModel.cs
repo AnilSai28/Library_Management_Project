@@ -9,7 +9,7 @@ using System.Web;
 public class IssueBookModel
 {
     public int IssueID { get; set; }
-    public string StudentID { get; set; }
+    public int StudentID { get; set; }
     public DateTime IssueDate { get; set; }
     public string IssueStatus { get; set; }
     public int BookID { get; set; }

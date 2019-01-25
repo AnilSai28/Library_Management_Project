@@ -30,13 +30,13 @@
                 else {
                     $("#txt_password_error").hide();
                 }
-                if ($("#txt_logintype").val().length == 0) {
-                    $("#txt_logintype_error").show();
-                    $("#txt_logintype").focus();
+                if ($("#ddl_logintype").val().length == 0) {
+                    $("#ddl_logintype_error").show();
+                    $("#ddl_logintype").focus();
                     return false;
                 }
                 else {
-                    $("#txt_logintype_error").hide();
+                    $("#ddl_logintype_error").hide();
                 }
             });
         });
@@ -45,6 +45,9 @@
 </head>
 <body>
     <div align="center">
+        <h2>
+            Library Management System
+        </h2>
     <form id="form2" runat="server" class="Container" style="text-align:left;width:25%">
         <div class="form-group">
             <label for="txt_loginid" class="form-control-plaintext">Login ID :</label>

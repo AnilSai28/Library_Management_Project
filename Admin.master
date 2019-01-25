@@ -13,7 +13,7 @@
     <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body>
+<body >
    <form id="form1" runat="server">
     <div align="center">
         <table style="width:900px;text-align:center;font-size:22px" class="table">
@@ -43,7 +43,7 @@
                 <td colspan="2" style="text-align:left;">
                     Developed By : Anil
                 </td>
-                <td colspan="2" style="text-align:right;">
+                <td colspan="3" style="text-align:right;">
                     Copyright Information
                 </td>
             </tr>

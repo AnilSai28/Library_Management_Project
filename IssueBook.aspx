@@ -3,52 +3,43 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="main" Runat="Server">
-    <asp:GridView ID="gv_books" runat="server" CssClass="table" AutoGenerateColumns="false" OnPageIndexChanging="gv_books_PageIndexChanging" AllowPaging="true" PageSize="5">
+    <asp:GridView ID="gv_books" runat="server" CssClass="table" AutoGenerateColumns="false" >
                 <Columns>
+
+                    <asp:TemplateField HeaderText="Issue ID" >
+                        <ItemTemplate>
+                            <asp:Label ID="lbl_IssueID" runat="server" Text='<% # Eval("IssueID") %>' />
+                        </ItemTemplate>
+                    </asp:TemplateField>
+
+                      <asp:TemplateField HeaderText="Student ID" >
+                        <ItemTemplate>
+                            <asp:Label ID="lbl_StudentID" runat="server" Text='<% # Eval("StudentID") %>' />
+                        </ItemTemplate>
+                    </asp:TemplateField>
+
+                     <asp:TemplateField HeaderText="Issue Date" >
+                        <ItemTemplate>
+                            <asp:Label ID="lbl_IssueDate" runat="server" Text='<% # Eval("IssueDate") %>' />
+                        </ItemTemplate>
+                    </asp:TemplateField>
+
+                    <asp:TemplateField HeaderText="Issue Status" >
+                        <ItemTemplate>
+                            <asp:Label ID="lbl_IssueStatus" runat="server" Text='<% # Eval("IssueStatus") %>' />
+                        </ItemTemplate>
+                    </asp:TemplateField>
 
                     <asp:TemplateField HeaderText="Book ID" >
                         <ItemTemplate>
-                            <asp:Label ID="lbl_bid" runat="server" Text='<% # Eval("BookID") %>' />
+                            <asp:Label ID="lbl_BookID" runat="server" Text='<% # Eval("BookID") %>' />
                         </ItemTemplate>
                     </asp:TemplateField>
-
-                      <asp:TemplateField HeaderText="Book Name" >
+		    <asp:TemplateField HeaderText="Book Title" >
                         <ItemTemplate>
-                            <asp:Label ID="lbl_bname" runat="server" Text='<% # Eval("BookName") %>' />
+                            <asp:Label ID="lbl_BookTitle" runat="server" Text='<% # Eval("BookTitle") %>' />
                         </ItemTemplate>
                     </asp:TemplateField>
-
-                     <asp:TemplateField HeaderText="Book Author" >
-                        <ItemTemplate>
-                            <asp:Label ID="lbl_bAuthor" runat="server" Text='<% # Eval("BookAuthor") %>' />
-                        </ItemTemplate>
-                    </asp:TemplateField>
-
-                    <asp:TemplateField HeaderText="Book Title" >
-                        <ItemTemplate>
-                            <asp:Label ID="lbl_bTitle" runat="server" Text='<% # Eval("BookTitle") %>' />
-                        </ItemTemplate>
-                    </asp:TemplateField>
-
-                    <asp:TemplateField HeaderText="Book Price" >
-                        <ItemTemplate>
-                            <asp:Label ID="lbl_bPrice" runat="server" Text='<% # Eval("BookPrice") %>' />
-                        </ItemTemplate>
-                    </asp:TemplateField>
-
-                    <asp:TemplateField HeaderText="Book AddDate" >
-                        <ItemTemplate>
-                            <asp:Label ID="lbl_bAddDate" runat="server" Text='<% # Eval("BookAddDate") %>' />
-                        </ItemTemplate>
-                    </asp:TemplateField>
-
-                     <asp:TemplateField HeaderText="NoOf Pages" >
-                        <ItemTemplate>
-                            <asp:Label ID="lbl_bNoofPages" runat="server" Text='<% # Eval("NoOfPages") %>' />
-                        </ItemTemplate>
-                    </asp:TemplateField>
-
-
 
                       <asp:TemplateField HeaderText="Book Image" >
                         <ItemTemplate>
@@ -56,11 +47,8 @@
                         </ItemTemplate>
                     </asp:TemplateField>
 
-                
-
-
+                    
                 </Columns>
             </asp:GridView>
-
 </asp:Content>
 

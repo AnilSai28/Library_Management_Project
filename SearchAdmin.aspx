@@ -78,15 +78,7 @@
                              </EditItemTemplate>
                     </asp:TemplateField>
 
-                    <asp:TemplateField HeaderText="Book AddDate" >
-                        <ItemTemplate>
-                            <asp:Label ID="lbl_bAddDate" runat="server" Text='<% # Eval("BookAddDate") %>' />
-                        </ItemTemplate>
-                        <EditItemTemplate>
-                            <asp:TextBox ID="txt_bAddDate" runat="server" Text='<% # Eval("BookAddDate") %>' />
-                       <asp:RequiredFieldValidator ID="r5" runat="server" ErrorMessage="*" ForeColor="Red" ValidationGroup="Update" ControlToValidate="txt_bAddDate" />
-                             </EditItemTemplate>
-                    </asp:TemplateField>
+                    
 
                      <asp:TemplateField HeaderText="NoOf Pages" >
                         <ItemTemplate>
@@ -94,7 +86,7 @@
                         </ItemTemplate>
                          <EditItemTemplate>
                             <asp:TextBox ID="txt_bNoofPages" runat="server" Text='<% # Eval("NoOfPages") %>' />
-                       <asp:RequiredFieldValidator ID="r6" runat="server" ErrorMessage="*" ForeColor="Red" ValidationGroup="Update" ControlToValidate="txt_bNoofPages" />
+                       <asp:RequiredFieldValidator ID="r5" runat="server" ErrorMessage="*" ForeColor="Red" ValidationGroup="Update" ControlToValidate="txt_bNoofPages" />
                              </EditItemTemplate>
                     </asp:TemplateField>
 
@@ -102,11 +94,11 @@
 
                       <asp:TemplateField HeaderText="Book Image" >
                         <ItemTemplate>
-                            <asp:Image ID="lbl_img" runat="server" ImageUrl='<% # Eval("BookImage") %>' />
+                            <asp:Image ID="lbl_img" runat="server" Height="100px" Width="100px" ImageUrl='<% # Eval("BookImage") %>' />
                         </ItemTemplate>
                           <EditItemTemplate>
-                            <asp:FileUpload ID="txt_bimg" runat="server" Text='<% # Eval("BookImage") %>' />
-                       <asp:RequiredFieldValidator ID="r7" runat="server" ErrorMessage="*" ForeColor="Red" ValidationGroup="Update" ControlToValidate="txt_bimg" />
+                            <asp:FileUpload ID="txt_bimg" runat="server" Height="100px" Width="100px" Text='<% # Eval("BookImage") %>' />
+                       <asp:RequiredFieldValidator ID="r6" runat="server" ErrorMessage="*" ForeColor="Red" ValidationGroup="Update" ControlToValidate="txt_bimg" />
                              </EditItemTemplate>
                     </asp:TemplateField>
 

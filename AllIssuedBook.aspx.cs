@@ -14,7 +14,7 @@ public partial class AllIssuedBook : System.Web.UI.Page
 
     protected void btn_search_Click(object sender, EventArgs e)
     {
-        int key = Convert.ToInt32(txt_search.Text);
+        string key =txt_search.Text;
         LibraryDAL dal = new LibraryDAL();
         gv_books.DataSource = dal.ShowAllIssuedBook(key);
         gv_books.DataBind();

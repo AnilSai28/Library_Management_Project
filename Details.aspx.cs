@@ -39,12 +39,59 @@ public partial class Details : System.Web.UI.Page
             int bid = Convert.ToInt32(txt_Bookid.Text);
             int sid = Convert.ToInt32(Session["loginid"]);
             LibraryDAL dal = new LibraryDAL();
-            int issueid = dal.IssueBook(bid, sid);
-            Response.Redirect("~/IssuedDone.aspx?issueid=" + issueid);
+            int issueid = dal.IssueBook(bid,sid);
+            Response.Redirect("~/IssueDone.aspx?issueid=" + issueid);
         }
         else
         {
             lbl_msg.Text = "Admin Cannot Issue Book";
+        }
+    }
+
+    protected void btn_MyCart_Click(object sender, EventArgs e)
+    {
+        if (Session["type"].ToString() == "Student")
+        {
+            int bid = Convert.ToInt32(txt_Bookid.Text);
+            int sid = Convert.ToInt32(Session["loginid"]);
+            LibraryDAL dal = new LibraryDAL();
+            int CartID = dal.AddCart(bid, sid);
+            if (CartID == 0)
+            {
+                lbl_msg.Text = "Book is already in cart";
+            }
+            else
+            {
+                lbl_msg.Text = "Book added in Cart :" + CartID;
+            }
+        }
+        else
+        {
+            lbl_msg.Text = "Admin Cannot Add to Cart";
+        }
+    }
+
+    protected void btn_RemoveFromCart_Click(object sender, EventArgs e)
+    {
+        if (Session["type"].ToString() == "Student")
+        {
+            int bid = Convert.ToInt32(txt_Bookid.Text);
+            int sid = Convert.ToInt32(Session["loginid"]);
+            LibraryDAL dal = new LibraryDAL();
+            bool status = dal.RemoveFromCart(bid,sid);
+            if (status == true)
+            {
+                lbl_msg.Text = "not removed from cart";
+            }
+            else
+
+            {
+                lbl_msg.Text = "removed from cart";
+            }
+        }
+        else
+        {
+            lbl_msg.Text = "Admin Cannot Add to Cart";
         }
     }
 }

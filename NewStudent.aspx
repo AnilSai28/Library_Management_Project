@@ -13,6 +13,16 @@
     <script>
         $(document).ready(function () {
             $(".text-danger").hide();
+            var dateToday = new Date();
+            dateToday.setFullYear(dateToday.getFullYear() - 18);
+            $('#txt_studentdob').datepicker(
+                {
+                    dateFormat: "mm/dd/yy",
+                    changeMonth: true,
+                    changeYear: true,
+                    yearRange: "-70Y:-18Y",
+                    defaultDate: dateToday
+                });
             $("#btn_newstudent").click(function () {
                 
             if ($("#txt_studentname").val().length == 0)
@@ -90,6 +100,9 @@
 </head>
 <body>
     <div align="center">
+        <h2>
+            New Student Entry Form
+        </h2>
     <form id="form1" runat="server" class="Container" style="text-align:left;width:25%">
     <div class="form-group">
         <label for="txt_studentname" class="form-control-plaintext">Student Name :</label>
@@ -103,7 +116,7 @@
     </div>
     <div class="form-group">
         <label for="txt_studentpassword" class="form-control-plaintext">Student Password :</label>
-        <asp:TextBox ID="txt_studentpassword" runat="server" CssClass="form-control" />
+        <asp:TextBox ID="txt_studentpassword" runat="server" CssClass="form-control" TextMode="Password" />
         <label for="txt_studentpassword" id="txt_studentpassword_error" class="text-danger">*</label>
     </div>
     <div class="form-group">

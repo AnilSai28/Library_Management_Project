@@ -31,7 +31,7 @@
                 <td><a href="StdentHome.aspx" class="btn-link">Home</a></td>
                 <td><a href="Search.aspx" class="btn-link">Search</a></td>
                 <td><a href="IssueBook.aspx" class="btn-link">IssueBook</a></td>
-                <td><a href="ContactUs.aspx" class="btn-link">Contact US</a></td>
+                <td><a href="MyCart.aspx" class="btn-link">Cart</a></td>
                 <td><asp:LinkButton ID="btn_logout" runat="server" CssClass="btn-link" Text="Logout" OnClick="btn_logout_Click" /></td>
             </tr>
             <tr>
@@ -43,7 +43,7 @@
                 <td colspan="2" style="text-align:left;">
                     Developed By : Student
                 </td>
-                <td colspan="2" style="text-align:right;">
+                <td colspan="3" style="text-align:right;">
                     Copyright Information
                 </td>
             </tr>

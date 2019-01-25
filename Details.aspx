@@ -43,7 +43,15 @@
         <label for="file_BookImage" id="file_BookImage_error" class="text-danger">*</label>
     </div>
      <div class="form-group" style="text-align:left;width:35%">
-        <asp:Button ID="btn_IssueBook" runat="server" Text="IssueBook" CssClass="btn-danger" OnClick="btn_IssueBook_Click" />
+        <asp:Button ID="btn_IssueBook" Width="200px" runat="server" Text="IssueBook" CssClass="btn-danger" OnClick="btn_IssueBook_Click" />
+        <br />
+            <br />
+        <asp:Button ID="btn_MyCart" Width="200px" runat="server" Text="Add to Cart" CssClass="btn-danger" OnClick="btn_MyCart_Click" />
+       <br />
+            <br />
+             <asp:Button ID="btn_RemoveFromCart" Width="200px" runat="server" Text="Remove from Cart" CssClass="btn-danger" OnClick="btn_RemoveFromCart_Click" />
+            <br />
+            <br />
         <asp:Label ID="lbl_msg" runat="server" CssClass="text-danger" />
         <br />
         

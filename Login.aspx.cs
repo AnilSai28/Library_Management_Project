@@ -23,15 +23,16 @@ public partial class Login : System.Web.UI.Page
 
     protected void btn_login_Click(object sender, EventArgs e)
     {
-        LoginModel model = new LoginModel();
-        model.LoginId = txt_loginid.Text;
-        model.Password = txt_Password.Text;
-        model.LoginType = ddl_logintype.Text;
 
-        Session["type"] = model.LoginType;
 
-        if (model.LoginType == "Student")
+        Session["type"] = ddl_logintype.Text;
+
+        if (ddl_logintype.Text == "Student")
         {
+            LoginModel model = new LoginModel();
+            model.LoginId = txt_loginid.Text;
+            model.Password = txt_Password.Text;
+            model.LoginType = ddl_logintype.Text;
             LibraryDAL dal = new LibraryDAL();
             bool status = dal.Login(model);
             if (status == true)
@@ -44,7 +45,7 @@ public partial class Login : System.Web.UI.Page
                 lbl_msg.Text = "Invalid User";
             }
         }
-        else if (model.LoginId == "Admin" && model.Password == "Admin@123" && model.LoginType == "Admin")
+        else if (txt_loginid.Text == "Admin" && txt_Password.Text == "Admin@123" && ddl_logintype.Text == "Admin")
         {
             Session["loginid"] = txt_loginid.Text;
             Response.Redirect("~/AdminHome.aspx");

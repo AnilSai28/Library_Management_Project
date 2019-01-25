@@ -20,7 +20,7 @@ public partial class NewBook : System.Web.UI.Page
         model.BookAuthor = txt_BookAuthor.Text;
         model.BookTitle = txt_BookTitle.Text;
         model.BookPrice = Convert.ToInt32(txt_BookPrice.Text);
-        model.BookAddDate = Convert.ToDateTime(txt_BookAddDate.Text);
+     
         model.NoOfPages = Convert.ToInt32(txt_NoOfPages.Text);
         model.BookImage = "~/Images/" + Guid.NewGuid() + ".jpg";
         file_BookImage.SaveAs(Server.MapPath(model.BookImage));

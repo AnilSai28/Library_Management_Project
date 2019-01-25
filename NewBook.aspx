@@ -10,68 +10,61 @@
         $(document).ready(function () {
             $(".text-danger").hide();
             $("#btn_newBook").click(function () {
-                if ($("#txt_Bookname").val().length == 0) {
-                    $("#txt_Bookname_error").show();
-                    $("#txt_Bookname").focus();
+                if ($("#main_txt_Bookname").val().length == 0) {
+                    $("#main_txt_Bookname_error").show();
+                    $("#main_txt_Bookname").focus();
                     return false;
                 }
                 else
                 {
-                    $("#txt_Bookname_error").hide();
+                    $("#main_txt_Bookname_error").hide();
                 }
-                if ($("#txt_BookAuthor").val().length == 0)
+                if ($("#main_txt_BookAuthor").val().length == 0)
             {
-                    $("#txt_BookAuthor_error").show();
-                    $("#txt_BookAuthor").focus();
+                    $("#main_txt_BookAuthor_error").show();
+                    $("#main_txt_BookAuthor").focus();
                 return false;
             }
             else
             {
-                    $("#txt_BookAuthor_error").hide();
+                    $("#main_txt_BookAuthor_error").hide();
             }
             
-                if ($("#txt_BookTitle").val().length == 0) {
-                    $("#txt_BookTitle_error").show();
-                    $("#txt_BookTitle").focus();
+                if ($("#main_txt_BookTitle").val().length == 0) {
+                    $("#main_txt_BookTitle_error").show();
+                    $("#main_txt_BookTitle").focus();
                 return false;
             }
             else
             {
-                    $("#txt_BookTitle_error").hide();
+                    $("#main_txt_BookTitle_error").hide();
             }
             
-                if ($("#txt_BookPrice").val().length == 0) {
-                    $("#txt_BookPrice_error").show();
-                    $("#txt_BookPrice").focus();
+                if ($("#main_txt_BookPrice").val().length == 0) {
+                    $("#main_txt_BookPrice_error").show();
+                    $("#main_txt_BookPrice").focus();
                 return false;
             }
             else
             {
-                    $("#txt_BookPrice_error").hide();
+                    $("#main_txt_BookPrice_error").hide();
                 }
-                if ($("#txt_BookAddDate").val().length == 0) {
-                    $("#txt_BookAddDate_error").show();
-                    $("#txt_BookAddDate").focus();
+            
+                if ($("#main_txt_NoOfPages").val().length == 0) {
+                    $("#main_txt_NoOfPages_error").show();
+                    $("#main_txt_NoOfPages").focus();
                     return false;
                 }
                 else {
-                    $("#txt_BookAddDate_error").hide();
+                    $("#main_txt_NoOfPages_error").hide();
                 }
-                if ($("#txt_NoOfPages").val().length == 0) {
-                    $("#txt_NoOfPages_error").show();
-                    $("#txt_NoOfPages").focus();
-                    return false;
-                }
-                else {
-                    $("#txt_NoOfPages_error").hide();
-                }
-                if ($("#file_BookImage").val().length == 0) {
-                    $("#file_BookImage_error").show();
-                    $("#file_BookImage").focus();
+                if ($("#main_file_BookImage").val().length == 0) {
+                    $("#main_file_BookImage_error").show();
+                    $("#main_file_BookImage").focus();
                 return false;
             }
             else {
-                    $("#file_BookImage_error").hide();
+                    $("#main_file_BookImage_error").hide();
             }
         });
      });
@@ -105,11 +98,7 @@
         <label for="txt_BookPrice" id="txt_BookPrice_error" class="text-danger">*</label>
     </div>
 
-    <div class="form-group" style="text-align:left;width:35%;">
-        <label for="txt_BookAddDate" class="form-control-plaintext">Book AddDate :</label>
-        <asp:TextBox ID="txt_BookAddDate" runat="server" CssClass="form-control" />
-        <label for="txt_BookAddDate" id="txt_BookAddDate_error" class="text-danger">*</label>
-    </div>
+ 
    <div class="form-group" style="text-align:left;width:35%;">
         <label for="txt_NoOfPages" class="form-control-plaintext">Noof Pages :</label>
         <asp:TextBox ID="txt_NoOfPages" runat="server" CssClass="form-control" />

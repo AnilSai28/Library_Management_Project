@@ -1,0 +1,54 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Admin.master.cs" Inherits="Admin" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+     <script src="JS/jquery-1.10.2.js"></script>
+    <script src="JS/jquery-ui.js"></script>
+    <script src="JS/bootstrap.js"></script>
+    <link href="CSS/bootstrap.css" rel="stylesheet" />
+    <link href="CSS/jquery-ui.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+   <form id="form1" runat="server">
+    <div align="center">
+        <table style="width:900px;text-align:center;font-size:22px" class="table">
+            <tr>
+                <td colspan="5">
+                    Welcome to Library
+                </td>
+            </tr>
+            <tr>
+                <td colspan="5">
+                    User ID : <asp:Label ID="lbl_userid" runat="server" CssClass="text-success" />
+                </td>
+            </tr>
+            <tr>
+                <td><a href="AdminHome.aspx" class="btn-link">Home</a></td>
+                <td><a href="SearchAdmin.aspx" class="btn-link">Search</a></td>
+                 <td><a href="NewBook.aspx" class="btn-link">AddBook</a></td>
+                <td><a href="AllIssuedBook.aspx" class="btn-link">AllIssuedBook</a></td>
+                <td><asp:LinkButton ID="btn_logout" runat="server" CssClass="btn-link" Text="Logout" OnClick="btn_logout_Click" /></td>
+            </tr>
+            <tr>
+                <td colspan="5">
+                    <asp:ContentPlaceHolder ID="main" runat="server" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align:left;">
+                    Developed By : Anil
+                </td>
+                <td colspan="2" style="text-align:right;">
+                    Copyright Information
+                </td>
+            </tr>
+        </table>
+    </div>
+    </form>
+</body>
+</html>
